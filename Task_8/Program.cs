@@ -8,5 +8,7 @@ for (int count = 2; count <= number; count ++)
     if (count % 2 == 0)
     {
         Console.Write($"{count}, ");
+        
     }
+ 
 }
