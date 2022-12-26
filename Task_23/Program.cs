@@ -1,5 +1,21 @@
-﻿Console.Write("Введите целое число: ");
-int num = int.Parse(Console.ReadLine() ?? "");
+﻿int num;
+
+while(true)
+{
+    Console.Write("Введите целое число: ");
+
+    try
+    {
+        num = int.Parse(Console.ReadLine() ?? "");
+        break;
+    }
+    catch (Exception exc)
+    {
+        Console.WriteLine($"Ошибка ввода! {exc.Message}");
+    }
+}
+
+
 
 Console.Write($"{num} -> ");
 
