@@ -14,14 +14,6 @@ while (true)
     }
 }
 
-//int result = Convert.ToString(num).Sum(c => c - '0');
-
-int result = 0;
-int numb = num;
-while (numb != 0)
-{
-    result += numb % 10;
-    numb /= 10;
-}
+int result = Convert.ToString(num).Sum(c => c - '0');
 
 Console.Write($"{num} -> {result};");
