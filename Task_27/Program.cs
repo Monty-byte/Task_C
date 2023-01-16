@@ -1,19 +1,28 @@
-﻿int num;
+﻿int num = GetNumberFromUser("Введите целое число", "Ошибка ввода!");
+int res = GetResult(num);
 
-while (true)
+Console.WriteLine($"{num} -> {res}");
+
+int GetNumberFromUser(string message, string errorMessage)
 {
-    Console.Write("Введите целое число: ");
-    try
+    while(true)
     {
-        num = Convert.ToInt32(Console.ReadLine());
-        break;
-    }
-    catch (Exception exc)
-    {
-        Console.WriteLine($"Ошибка ввода! {exc.Message}");
+        Console.WriteLine(message);
+        bool isCorrect = int.TryParse(Console.ReadLine(), out int userNumber);
+        if (isCorrect)
+            return userNumber;
+            Console.WriteLine(errorMessage);
     }
 }
 
-int result = Convert.ToString(num).Sum(c => c - '0');
-
-Console.Write($"{num} -> {result};");
+int GetResult(int number)
+{
+    int result = 0;
+    int absNumber = Math.Abs(number);
+    while(absNumber > 0)
+    {
+        result = result + absNumber%10;
+        absNumber = absNumber/10;
+    }
+    return result;
+}
