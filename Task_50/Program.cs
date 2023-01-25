@@ -11,7 +11,7 @@ InputUser(ref rows, ref columns, ref element);
 int[,] array = GetArray(rows, columns, 0, 10);
 
 PrintArray(array);
-
+Check(array);
 
 
 static void InputUser(ref int rows, ref int columns, ref int element)
@@ -67,20 +67,23 @@ void PrintArray(int[,] inArray)
      Console.WriteLine();
 }
 
-bool f = false;
-for (int i = 0; i < array.GetLength(0); i++)
+bool Check(int[,] inArray)
 {
-    for (int j = 0; j < array.GetLength(1); j++)
+    bool f = false;
+    for (int i = 0; i < inArray.GetLength(0); i++)
     {
-        if (array[i, j] == element) f = true;
+        for (int j = 0; j < inArray.GetLength(1); j++)
+        {
+            if (inArray[i, j] == element) f = true;
+        }
     }
+    if (f)
+    {
+        Console.WriteLine($"{element} -> Такое число в массиве есть");
+    }
+    else Console.WriteLine($"{element} -> Такого числа в массиве нет");
+    return f;
 }
-if (f)
-{
-    Console.WriteLine($"{element} -> Такое число в массиве есть");
-}
-else Console.WriteLine($"{element} -> Такого числа в массиве нет");
-
 
 
 
