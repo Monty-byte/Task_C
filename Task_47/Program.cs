@@ -12,6 +12,8 @@ int columns = int.Parse(Console.ReadLine() ?? "");
 
 double[,] array = GetArray(rows, columns, -10, 10);
 
+PrintArray(array);
+
 double[,] GetArray(int m, int n, int minValue, int maxValue)
 {
     double[,] result = new double[m, n];
@@ -38,4 +40,3 @@ void PrintArray(double[,] inArray)
     }
 }
 
-PrintArray(array);
